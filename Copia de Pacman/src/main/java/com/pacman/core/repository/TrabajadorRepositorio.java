@@ -8,4 +8,5 @@ import java.io.Serializable;
 @Repository("repositoriotrabajador")
 public interface TrabajadorRepositorio extends JpaRepository<Trabajador,Serializable> {
 	public abstract Trabajador findByRut(String rut) ;
+	
 }

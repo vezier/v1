@@ -17,14 +17,14 @@ public class MCuenta {
 	public MCuenta(Cuenta cuenta) {
 		this.id_cuenta = cuenta.getId_cuenta();
 		this.estado_cuenta = cuenta.getEstado_cuenta();
-		this.idmesa = cuenta.getidMesa();
+		this.idmesa = cuenta.getMesa().getId_mesa();
 	}
 
 	public MCuenta(String id_cuenta, int estado_cuenta, Mesa mesa) {
 		super();
 		this.id_cuenta = id_cuenta;
 		this.estado_cuenta = estado_cuenta;
-		this.idmesa = idmesa;
+		this.idmesa = mesa.getId_mesa();
 	}
 	
 	// Getter and Setter
@@ -49,12 +49,12 @@ public class MCuenta {
 	}
 
 
-	public String getidmesa() {
+	public String getMesa() {
 		return idmesa;
 	}
 
 
-	public void setMesa(String idmesa) {
-		this.idmesa = idmesa;
+	public void setMesa(Mesa mesa) {
+		this.idmesa = mesa.getId_mesa();
 	}	
 }

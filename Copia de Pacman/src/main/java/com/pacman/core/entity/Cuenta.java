@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Table(name="cuenta")
@@ -19,9 +20,9 @@ public class Cuenta implements Serializable{
 	private String id ;
 	@Column(name="estado_cuenta")
 	private int estado_cuenta ;
-	//@ManyToOne
+	@ManyToOne
 	@JoinColumn(name="id_mesa")
-	private String idmesa ;
+	private Mesa idmesa ;
 	
 	// Constructors
 	
@@ -29,8 +30,7 @@ public class Cuenta implements Serializable{
 
 	}
 
-	public Cuenta(String id_cuenta, int estado_cuenta, String idmesa) {
-		
+	public Cuenta(String id_cuenta, int estado_cuenta, Mesa idmesa) {
 		this.id = id_cuenta;
 		this.estado_cuenta = estado_cuenta;
 		this.idmesa = idmesa;
@@ -54,11 +54,11 @@ public class Cuenta implements Serializable{
 		this.estado_cuenta = estado_cuenta;
 	}
 
-	public String getidMesa() {
+	public Mesa getMesa() {
 		return idmesa;
 	}
 
-	public void setidmesa(String idmesa) {
+	public void setidmesa(Mesa idmesa) {
 		this.idmesa = idmesa;
 	}	
 	

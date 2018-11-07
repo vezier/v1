@@ -10,5 +10,5 @@ import com.pacman.core.entity.Cuenta;
 
 @Repository("repositoriocuenta")
 public interface CuentaRepositorio extends JpaRepository<Cuenta,Serializable>{
-	public abstract List<Cuenta> findByIdmesa(String idemesa);
+	//public abstract List<Cuenta> findByIdmesa( String idemesa);
 }
