@@ -6,7 +6,7 @@ import com.pacman.core.entity.Mesa;
 public class MCuenta {
 	private String id_cuenta ;
 	private int estado_cuenta ;
-	private Mesa mesa ;
+	private String idmesa ;
 	
 	//Constructors
 	
@@ -17,14 +17,14 @@ public class MCuenta {
 	public MCuenta(Cuenta cuenta) {
 		this.id_cuenta = cuenta.getId_cuenta();
 		this.estado_cuenta = cuenta.getEstado_cuenta();
-		this.mesa = cuenta.getMesa();
+		this.idmesa = cuenta.getidMesa();
 	}
 
 	public MCuenta(String id_cuenta, int estado_cuenta, Mesa mesa) {
 		super();
 		this.id_cuenta = id_cuenta;
 		this.estado_cuenta = estado_cuenta;
-		this.mesa = mesa;
+		this.idmesa = idmesa;
 	}
 	
 	// Getter and Setter
@@ -49,12 +49,12 @@ public class MCuenta {
 	}
 
 
-	public Mesa getMesa() {
-		return mesa;
+	public String getidmesa() {
+		return idmesa;
 	}
 
 
-	public void setMesa(Mesa mesa) {
-		this.mesa = mesa;
+	public void setMesa(String idmesa) {
+		this.idmesa = idmesa;
 	}	
 }

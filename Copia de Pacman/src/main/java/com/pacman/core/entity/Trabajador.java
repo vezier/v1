@@ -1,5 +1,7 @@
 package com.pacman.core.entity;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,8 +10,8 @@ import javax.persistence.Table;
 
 @Table(name="trabajador")
 @Entity
-public class Trabajador {
-	@GeneratedValue
+public class Trabajador implements Serializable{
+	//@GeneratedValue
 	@Id
 	@Column(name="rut")
 	private String rut ;

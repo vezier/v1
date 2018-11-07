@@ -1,5 +1,7 @@
 package com.pacman.core.entity;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,16 +12,16 @@ import javax.persistence.Table;
 
 @Table(name="cuenta")
 @Entity
-public class Cuenta {
-	@GeneratedValue
+public class Cuenta implements Serializable{
+	//@GeneratedValue
 	@Id
 	@Column(name="id_cuenta")
-	private String id_cuenta ;
+	private String id ;
 	@Column(name="estado_cuenta")
 	private int estado_cuenta ;
-	@ManyToOne
+	//@ManyToOne
 	@JoinColumn(name="id_mesa")
-	private Mesa mesa ;
+	private String idmesa ;
 	
 	// Constructors
 	
@@ -27,21 +29,21 @@ public class Cuenta {
 
 	}
 
-	public Cuenta(String id_cuenta, int estado_cuenta, Mesa mesa) {
-		super();
-		this.id_cuenta = id_cuenta;
+	public Cuenta(String id_cuenta, int estado_cuenta, String idmesa) {
+		
+		this.id = id_cuenta;
 		this.estado_cuenta = estado_cuenta;
-		this.mesa = mesa;
+		this.idmesa = idmesa;
 	}
 	
 	// Getter and Setter
 
 	public String getId_cuenta() {
-		return id_cuenta;
+		return id;
 	}
 
 	public void setId_cuenta(String id_cuenta) {
-		this.id_cuenta = id_cuenta;
+		this.id = id_cuenta;
 	}
 
 	public int getEstado_cuenta() {
@@ -52,12 +54,12 @@ public class Cuenta {
 		this.estado_cuenta = estado_cuenta;
 	}
 
-	public Mesa getMesa() {
-		return mesa;
+	public String getidMesa() {
+		return idmesa;
 	}
 
-	public void setMesa(Mesa mesa) {
-		this.mesa = mesa;
+	public void setidmesa(String idmesa) {
+		this.idmesa = idmesa;
 	}	
 	
 }

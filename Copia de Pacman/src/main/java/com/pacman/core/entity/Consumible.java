@@ -1,5 +1,7 @@
 package com.pacman.core.entity;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,11 +10,11 @@ import javax.persistence.Table;
 
 @Table(name="consumible")
 @Entity
-public class Consumible {
-	@GeneratedValue
+public class Consumible implements Serializable{
+	// @GeneratedValue
 	@Id
 	@Column(name="id_consumible")
-	private String id_consumible ;
+	private String idconsumible ;
 	@Column(name="nombre")
 	private String nombre ;
 	@Column(name="descripcion")
@@ -22,7 +24,7 @@ public class Consumible {
 	
 	//Constructor
 	public Consumible(String id_consumible, String nombre, String descripcion, int precio) {
-		this.id_consumible = id_consumible;
+		this.idconsumible = id_consumible;
 		this.nombre = nombre;
 		this.descripcion = descripcion;
 		this.precio = precio;
@@ -34,11 +36,11 @@ public class Consumible {
 
 	// Getter and Setter
 	public String getId_consumible() {
-		return id_consumible;
+		return idconsumible;
 	}
 	
 	public void setId_consumible(String id_consumible) {
-		this.id_consumible = id_consumible;
+		this.idconsumible = id_consumible;
 	}
 	public String getNombre() {
 		return nombre;

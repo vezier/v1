@@ -3,7 +3,7 @@ package com.pacman.core.model;
 import com.pacman.core.entity.Consumible;
 
 public class MConsumible {
-	private String id_consumible ;
+	private String idconsumible ;
 	private String nombre ;
 	private String descripcion ;
 	private int precio ;
@@ -11,14 +11,14 @@ public class MConsumible {
 	//constructor
 	
 	public MConsumible(String id_consumible, String nombre, String descripcion, int precio) {
-		this.id_consumible = id_consumible;
+		this.idconsumible = id_consumible;
 		this.nombre = nombre;
 		this.descripcion = descripcion;
 		this.precio = precio;
 	}
 	
 	public MConsumible(Consumible consumible) {
-		this.id_consumible = consumible.getId_consumible();
+		this.idconsumible = consumible.getId_consumible();
 		this.nombre = consumible.getNombre();
 		this.descripcion = consumible.getDescripcion();
 		this.precio = consumible.getPrecio();
@@ -31,11 +31,11 @@ public class MConsumible {
 	//getter and setter
 
 	public String getId_consumible() {
-		return id_consumible;
+		return idconsumible;
 	}
 
 	public void setId_consumible(String id_consumible) {
-		this.id_consumible = id_consumible;
+		this.idconsumible = id_consumible;
 	}
 
 	public String getNombre() {
