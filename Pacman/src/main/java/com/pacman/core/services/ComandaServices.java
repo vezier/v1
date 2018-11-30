@@ -42,10 +42,10 @@ public class ComandaServices {
 		}
 	}
 	
-	public boolean borrarComanda(String idcomanda) {
+	public boolean borrarComanda(int idlista) {
 		try {
-			Comanda comanda = repositorio.findByIdlista(idcomanda) ;
-			repositorio.save(comanda) ;
+			Comanda comanda = repositorio.findByIdlista(idlista) ;
+			repositorio.delete(comanda); ;
 			return true ;
 		} catch (Exception e) {
 			return false ;

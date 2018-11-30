@@ -11,7 +11,7 @@ import java.util.List;
 @Repository("repositoriocomanda")
 public interface ComandaRepositorio extends JpaRepository<Comanda,Serializable>{
 	
-	public abstract Comanda findByIdlista(String idlista) ;
+	public abstract Comanda findByIdlista(int idlista) ;
 	
 	public abstract List<Comanda> findByCuenta(Cuenta cuenta);
 }

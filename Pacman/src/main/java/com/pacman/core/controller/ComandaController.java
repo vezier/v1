@@ -4,6 +4,7 @@ import java.util.List;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -44,6 +45,11 @@ public class ComandaController {
 		comanda.setCuenta(cuenta);
 		comanda.setConsumible(consumible);
 		return servicioComanda.insertarComanda(comanda);
+	}
+	
+	@DeleteMapping("/comanda/{idlista}")
+	public boolean eliminarComanda(@PathVariable("idlista") int idlista) {
+		return servicioComanda.borrarComanda(idlista);
 	}
 	
 	@GetMapping("/comandas/{idcuenta}")
