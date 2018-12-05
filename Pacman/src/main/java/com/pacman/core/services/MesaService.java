@@ -52,7 +52,7 @@ public class MesaService {
 			return convertidor.convertirListaMesa(aux);
 	}
 	
-	public Mesa obtenerMesita(String idmesa) {
-		return repositorio.findByIdmesa(idmesa) ;
+	public Mesa obtenerMesita(int idmesa) {
+		return repositorio.findByNumero(idmesa) ;
 	}
 }

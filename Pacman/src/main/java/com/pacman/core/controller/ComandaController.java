@@ -1,5 +1,6 @@
 package com.pacman.core.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,17 +17,19 @@ import org.springframework.web.bind.annotation.RestController;
 import com.pacman.core.entity.Comanda;
 import com.pacman.core.entity.Consumible;
 import com.pacman.core.entity.Cuenta;
+import com.pacman.core.entity.Mesa;
 import com.pacman.core.model.MComanda;
 import com.pacman.core.services.ComandaServices;
 import com.pacman.core.services.ConsumibleService;
 import com.pacman.core.services.CuentaService;
+import com.pacman.core.services.MesaService;
 
 @RestController
 @RequestMapping("/pacman")
 public class ComandaController {
 	@Autowired
 	@Qualifier("serviciocomanda")
-	ComandaServices servicioComanda ;
+	ComandaServices serviciocomanda ;
 	
 	@Autowired
 	@Qualifier("serviciocuenta")
@@ -36,16 +39,15 @@ public class ComandaController {
 	@Qualifier("servicioconsumible")
 	ConsumibleService servicioconsumible ;
 	
+	@Autowired
+	@Qualifier("serviciomesa")
+	MesaService serviciomesita ;
+	
 	@PutMapping("/comanda")
 	public boolean insertarComanda(@RequestBody @Valid MComanda mcomanda) {
-		Cuenta cuenta = serviciocuenta.devolverCuenta(mcomanda.getIdcuenta());
-		Consumible consumible = servicioconsumible.devolverConsumible(mcomanda.getIdconsumible());
-		Comanda comanda = new Comanda();
-		comanda.setIdlista(mcomanda.getIdlista());
-		comanda.setCuenta(cuenta);
-		comanda.setConsumible(consumible);
-		return servicioComanda.insertarComanda(comanda);
+		return serviciocomanda.insertarComanda(mcomanda);
 	}
+	/*
 	
 	@DeleteMapping("/comanda/{idlista}")
 	public boolean eliminarComanda(@PathVariable("idlista") int idlista) {
@@ -56,4 +58,8 @@ public class ComandaController {
 	public List<MComanda> listarComandasDeCuenta(@PathVariable("idcuenta") String idcuenta) {
 		return servicioComanda.listarComanda(idcuenta);
 	}
+	
+		return true ;
+}
+*/
 }

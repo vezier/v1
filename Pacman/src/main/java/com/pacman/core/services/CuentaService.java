@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import com.pacman.core.converter.ConvertidorCuenta;
 import com.pacman.core.entity.Cuenta;
+import com.pacman.core.entity.Mesa;
 import com.pacman.core.model.MCuenta;
 import com.pacman.core.repository.CuentaRepositorio;
 
@@ -18,6 +19,9 @@ public class CuentaService {
 	@Autowired
 	@Qualifier("convertidorcuenta")
 	private ConvertidorCuenta convertidor ;
+	@Autowired
+	@Qualifier("serviciomesa")
+	private MesaService serviciomesita ;
 	
 	public boolean insertarCuenta(Cuenta cuenta) {
 		try {
@@ -38,7 +42,7 @@ public class CuentaService {
 		}
 	}
 	
-	public boolean eliminarCuenta(String id) {
+	public boolean eliminarCuenta(int id) {
 		try {
 			Cuenta aux = repositorioc.findByIdcuenta(id) ;
 			repositorioc.delete(aux);
@@ -54,7 +58,7 @@ public class CuentaService {
 		return convertidor.convertirListaCuenta(aux);
 	}
 	
-	public Cuenta devolverCuenta(String idcuenta) {
+	public Cuenta devolverCuenta(int idcuenta) {
 		return repositorioc.findByIdcuenta(idcuenta);
 	}
 }

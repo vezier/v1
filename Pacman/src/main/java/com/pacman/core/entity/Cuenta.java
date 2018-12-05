@@ -4,6 +4,8 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 //import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -14,52 +16,40 @@ import javax.persistence.Table;
 @Table(name="cuenta")
 @Entity
 public class Cuenta implements Serializable{
-	//@GeneratedValue
+	@GeneratedValue (strategy=GenerationType.AUTO)
 	@Id
 	@Column(name="id_cuenta")
-	private String idcuenta ;
+	private int idcuenta ;
 	@Column(name="estado_cuenta")
-	private int estado_cuenta ;
-	@ManyToOne
-	@JoinColumn(name="id_mesa")
-	private Mesa mesa ;
+	private int estadocuenta ;
 	
 	// Constructors
 	
 	public Cuenta() {
-
+		this.estadocuenta= 1;
 	}
 
-	public Cuenta(String idcuenta, int estado_cuenta, Mesa mesa) {
+	public Cuenta(int idcuenta, int estado_cuenta) {
 		this.idcuenta = idcuenta;
-		this.estado_cuenta = estado_cuenta;
-		this.mesa = mesa;
+		this.estadocuenta = estado_cuenta;
 	}
 	
 	// Getter and Setter
 
-	public String getIdcuenta() {
+	public int getIdcuenta() {
 		return idcuenta;
 	}
 
-	public void setIdcuenta(String idcuenta) {
+	public void setIdcuenta(int idcuenta) {
 		this.idcuenta = idcuenta;
 	}
 
-	public int getEstado_cuenta() {
-		return estado_cuenta;
+	public int getEstadocuenta() {
+		return estadocuenta;
 	}
 
-	public void setEstado_cuenta(int estado_cuenta) {
-		this.estado_cuenta = estado_cuenta;
+	public void setEstadocuenta(int estadocuenta) {
+		this.estadocuenta = estadocuenta;
 	}
-
-	public Mesa getMesa() {
-		return mesa;
-	}
-
-	public void setMesa(Mesa mesa) {
-		this.mesa = mesa;
-	}	
 	
 }

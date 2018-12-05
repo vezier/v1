@@ -6,19 +6,20 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Table(name="mesa")
 @Entity
 public class Mesa implements Serializable{
-	//@GeneratedValue
 	@Id
-	@Column(name="id_mesa")
-	private String idmesa ;
 	@Column(name="numero")
 	private int numero ;
-	@Column(name="estado")
-	private int estado ; // 0 or 1 if depends on	
+	@ManyToOne
+	@JoinColumn(name="id_cuenta")
+	private  Cuenta cuenta ; // 0 or 1 if depends on	
 	
 	// Constructors
 	
@@ -26,29 +27,23 @@ public class Mesa implements Serializable{
 		
 	}
 
-	public Mesa(String idmesa, int numero, int estado) {
-		this.idmesa = idmesa;
+	public Mesa(int numero, Cuenta estado) {
 		this.numero = numero;
-		this.estado = estado;
+		this.cuenta = estado;
 	}
 	
 	// Getter and Setter
-	public String getIdmesa() {
-		return idmesa;
-	}
-	public void setIdmesa(String idmesa) {
-		this.idmesa = idmesa;
-	}
+	
 	public int getNumero() {
 		return numero;
 	}
 	public void setNumero(int numero) {
 		this.numero = numero;
 	}
-	public int getEstado() {
-		return estado;
+	public Cuenta getCuenta() {
+		return cuenta;
 	}
-	public void setEstado(int estado) {
-		this.estado = estado;
+	public void setCuenta(Cuenta cuenta) {
+		this.cuenta = cuenta;
 	}	
 }

@@ -13,5 +13,6 @@ import com.pacman.core.model.MCuenta;
 public interface CuentaRepositorio extends JpaRepository<Cuenta,Serializable>{
 	
 	//public abstract List<Cuenta> findByIdmesa( String idmesa);
-	public abstract Cuenta findByIdcuenta(String idcuenta);
+	public abstract Cuenta findByIdcuenta(int idcuenta);
+	
 }

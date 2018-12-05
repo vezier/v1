@@ -29,21 +29,19 @@ public class CuentaController {
 	MesaService serviciomesita ; // lo importe para buscar el objeto mesa
 	
 	@PutMapping("/cuenta") 
-	 public boolean ponerCuenta(@RequestBody @Valid MCuenta c) {
-		Mesa fufu = serviciomesita.obtenerMesita(c.getMesa()) ;
-		Cuenta aux = new Cuenta(c.getId_cuenta(),c.getEstado_cuenta(),fufu);
-		return servicio.insertarCuenta(aux) ;
+	 public boolean ponerCuenta(@RequestBody @Valid MCuenta numero) {
+		return true ;
 	}
-	
+	/*
 	@PostMapping("/cuenta")
 	public boolean modificarCuenta(@RequestBody @Valid MCuenta c) {
 		Mesa fufu = serviciomesita.obtenerMesita(c.getMesa());
 		Cuenta aux = new Cuenta(c.getId_cuenta(),c.getEstado_cuenta(),fufu) ;
 		return servicio.modificarCuenta(aux);
 	}
-	
+	*/
 	@DeleteMapping("/cuenta/{idcuenta}")
-	public boolean eliminarCuenta(@PathVariable("idcuenta") String idcuenta) {
+	public boolean eliminarCuenta(@PathVariable("idcuenta") int idcuenta) {
 		return servicio.eliminarCuenta(idcuenta) ;
 	}
 	

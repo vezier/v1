@@ -17,8 +17,6 @@ public class Trabajador implements Serializable{
 	private String rut ;
 	@Column(name="nombre")
 	private String nombre ;
-	@Column(name="telefono")
-	private int telefono ;
 	
 	//constructors
 	
@@ -26,10 +24,9 @@ public class Trabajador implements Serializable{
 		
 	}
 
-	public Trabajador(String rut, String nombre, int telefono) {
+	public Trabajador(String rut, String nombre) {
 		this.rut = rut;
 		this.nombre = nombre;
-		this.telefono = telefono;
 	}
 
 	//getter and setter
@@ -57,14 +54,4 @@ public class Trabajador implements Serializable{
 	}
 
 
-
-	public int getTelefono() {
-		return telefono;
-	}
-
-
-
-	public void setTelefono(int telefono) {
-		this.telefono = telefono;
-	}
 }

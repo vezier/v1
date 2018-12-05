@@ -5,28 +5,26 @@ import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Table(name="consumible")
 @Entity
 public class Consumible implements Serializable{
-	// @GeneratedValue
+	@GeneratedValue (strategy=GenerationType.AUTO)
 	@Id
 	@Column(name="id_consumible")
-	private String idconsumible ;
+	private int idconsumible ;
 	@Column(name="nombre")
 	private String nombre ;
-	@Column(name="descripcion")
-	private String descripcion ;
 	@Column(name="precio")
 	private int precio ;
 	
 	//Constructor
-	public Consumible(String idconsumible, String nombre, String descripcion, int precio) {
+	public Consumible(int idconsumible, String nombre, int precio) {
 		this.idconsumible = idconsumible;
 		this.nombre = nombre;
-		this.descripcion = descripcion;
 		this.precio = precio;
 	}
 	
@@ -35,11 +33,11 @@ public class Consumible implements Serializable{
 	}
 
 	// Getter and Setter
-	public String getIdconsumible() {
+	public int getIdconsumible() {
 		return idconsumible;
 	}
 	
-	public void setIdconsumible(String idconsumible) {
+	public void setIdconsumible(int idconsumible) {
 		this.idconsumible = idconsumible;
 	}
 	public String getNombre() {
@@ -48,12 +46,7 @@ public class Consumible implements Serializable{
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	public String getDescripcion() {
-		return descripcion;
-	}
-	public void setDescripcion(String descripcion) {
-		this.descripcion = descripcion;
-	}
+	
 	public int getPrecio() {
 		return precio;
 	}

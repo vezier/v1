@@ -1,6 +1,7 @@
 package com.pacman.core.controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
+
 import org.springframework.web.bind.annotation.RestController;
 import com.pacman.core.entity.Consumible;
 import com.pacman.core.services.ConsumibleService;
@@ -34,7 +35,7 @@ public class ConsumibleController {
 	}
 	
 	@DeleteMapping("/consumible/{id}")
-	public boolean eliminarConsumible(@PathVariable("id") String nombre) {
+	public boolean eliminarConsumible(@PathVariable("id")int nombre) {
 		return servicio.borrarConsumible(nombre) ;
 	}
 	
@@ -44,7 +45,7 @@ public class ConsumibleController {
 	}
 	
 	@GetMapping("/consumibles/{idconsumible}")
-	public Consumible obtenerCon(@PathVariable("idconsumible") String idconsumible) {
+	public Consumible obtenerCon(@PathVariable("idconsumible") int idconsumible) {
 		return servicio.devolverConsumible(idconsumible);
 	}
 }

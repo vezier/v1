@@ -40,7 +40,7 @@ public class ConsumibleService {
 		}
 	}
 	
-	public boolean borrarConsumible(String id) {
+	public boolean borrarConsumible(int id) {
 		try {
 			Consumible aux = repositorio.findByIdconsumible(id) ;
 			repositorio.delete(aux);
@@ -55,7 +55,8 @@ public class ConsumibleService {
 		return convertidor.convertirListaConsumible(aux);
 	}
 	
-	public Consumible devolverConsumible(String idconsumible) {
+	public Consumible devolverConsumible(int idconsumible) {
 		return repositorio.findByIdconsumible(idconsumible);
+		
 	}
 }

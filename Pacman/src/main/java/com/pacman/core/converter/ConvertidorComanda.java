@@ -9,6 +9,7 @@ import com.pacman.core.model.MComanda ;
 
 @Component("convertidorcomanda")
 public class ConvertidorComanda {
+	/*
 	public List<MComanda> convertirListaComanda(List<Comanda> c){
 		List<MComanda> mcomandas = new ArrayList<MComanda>();
 		for(Comanda com : c) {
@@ -16,4 +17,5 @@ public class ConvertidorComanda {
 		}
 		return mcomandas ;
 	}
+	*/
 }

@@ -1,11 +1,10 @@
 package com.pacman.core.entity;
 
 import java.io.Serializable;
-
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
@@ -19,7 +18,7 @@ import javax.persistence.Table;
 @Table(name="comanda")
 @Entity
 public class Comanda implements Serializable{
-	//@GeneratedValue
+	@GeneratedValue (strategy=GenerationType.AUTO)
 	@Id
 	@Column(name="id_lista")
 	private int idlista ;
@@ -29,16 +28,19 @@ public class Comanda implements Serializable{
 	@ManyToOne
 	@JoinColumn(name="id_consumible")
 	private Consumible consumible ;
+	@Column(name="comentario")
+	private String comentario ;
 	
 	//Constructors
 	public Comanda() {
 		
 	}
 	
-	public Comanda(int idlista, Cuenta cuenta, Consumible consumible) {
+	public Comanda(int idlista, Cuenta cuenta, Consumible consumible,String comentario) {
 		this.idlista = idlista;
 		this.cuenta = cuenta;
 		this.consumible = consumible;
+		this.comentario = comentario ;
 	}
 	
 	// Getter and Setter
@@ -59,5 +61,15 @@ public class Comanda implements Serializable{
 	}
 	public void setConsumible(Consumible consumible) {
 		this.consumible = consumible;
-	}	
+	}
+
+	public String getComentario() {
+		return comentario;
+	}
+
+	public void setComentario(String comentario) {
+		this.comentario = comentario;
+	}
+	
+	
 }

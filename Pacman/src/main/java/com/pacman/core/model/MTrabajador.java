@@ -5,22 +5,19 @@ import com.pacman.core.entity.Trabajador;
 public class MTrabajador {
 	private String rut ;
 	private String nombre ;
-	private int telefono ;
 	
 	// constructors
 	public MTrabajador(Trabajador trabajador) {
 		this.rut = trabajador.getRut();
 		this.nombre = trabajador.getNombre();
-		this.telefono = trabajador.getTelefono();
 	}
 	
 	public MTrabajador() {
 
 	}
-	public MTrabajador(String rut, String nombre, int telefono) {
+	public MTrabajador(String rut, String nombre) {
 		this.rut = rut;
 		this.nombre = nombre;
-		this.telefono = telefono;
 	}
 	
 	// getter and setter
@@ -35,12 +32,6 @@ public class MTrabajador {
 	}
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
-	}
-	public int getTelefono() {
-		return telefono;
-	}
-	public void setTelefono(int telefono) {
-		this.telefono = telefono;
 	}
 	
 	
